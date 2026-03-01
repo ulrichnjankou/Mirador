@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRADOR - Comparateur Refonte Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #F9FAFB;
+            color: #111827;
+        }
+        .hero {
+            background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .feature-card h3 {
+            color: #2563EB;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .feature-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: bold;
+        }
+        .steps {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        .steps h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2563EB;
+        }
+        .step-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 1.5rem;
+            background: #F9FAFB;
+            border-radius: 8px;
+            border: 2px solid #E5E7EB;
+        }
+        .step.active {
+            border-color: #2563EB;
+            background: #EFF6FF;
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2563EB;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .step h3 {
+            margin-bottom: 0.5rem;
+        }
+        .step p {
+            font-size: 0.875rem;
+            color: #6B7280;
+        }
+        .cta {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #2563EB;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2563EB;
+        }
+        .stat-label {
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        footer a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🛡️ MIRADOR</h1>
+        <p>Comparateur Refonte - L'assurance à la portée de tous</p>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature-card">
+                <h3>🎯 15 Offres Multi-acteurs</h3>
+                <ul>
+                    <li>5 offres Auto</li>
+                    <li>3 offres Habitation</li>
+                    <li>4 offres Santé</li>
+                    <li>3 offres Épargne-Vie</li>
+                    <li>MAIF, MACIF, AXA, Groupama...</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>⚡ Filtres Adaptatifs</h3>
+                <ul>
+                    <li>Dynamiques par type d'assurance</li>
+                    <li>Score MIRADOR (Prix/Couverture/Service)</li>
+                    <li>Budget, franchise, NPS</li>
+                    <li>Garanties spécifiques</li>
+                    <li>Application temps réel</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>🚀 Souscription Intégrée</h3>
+                <ul>
+                    <li>Tarif ferme en 2 minutes</li>
+                    <li>Flow KYC complet</li>
+                    <li>Signature électronique</li>
+                    <li>Paiement SEPA/CB</li>
+                    <li>Contrat instantané</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="steps">
+            <h2>Parcours en 4 Étapes</h2>
+            <div class="step-list">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <h3>Filtrer</h3>
+                    <p>Sélectionnez vos critères selon votre profil</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Comparer</h3>
+                    <p>Consultez les offres classées par pertinence</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Tarif ferme</h3>
+                    <p>Obtenez votre prix définitif garanti 30 jours</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Souscrire</h3>
+                    <p>Finalisez en ligne avec signature électronique</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Offres disponibles</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Types d'assurance</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Critères de filtrage</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Étapes de souscription</div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="/" class="cta-button">
+                Démarrer la comparaison →
+            </a>
+            <p style="margin-top: 1rem; color: #6B7280;">
+                Accédez à l'application complète en production
+            </p>
+        </div>
+
+        <div class="feature-card" style="margin-top: 3rem;">
+            <h3>🔧 Pour les Développeurs</h3>
+            <p style="margin-bottom: 1rem; color: #6B7280;">Architecture technique complète</p>
+            <ul>
+                <li><strong>React + TypeScript</strong> - Type-safe à 100%</li>
+                <li><strong>Tailwind CSS v4</strong> - Variables CSS modernes</li>
+                <li><strong>Shadcn/ui</strong> - Composants accessibles</li>
+                <li><strong>15 offres enrichies</strong> - Data structurée dans offersFull.ts</li>
+                <li><strong>Filtres adaptatifs</strong> - 4 types avec logique métier</li>
+                <li><strong>Tarification dynamique</strong> - Facteurs de majoration/réduction</li>
+                <li><strong>KYC complet</strong> - Upload, PEP, sanctions</li>
+                <li><strong>E-signature</strong> - Conformité eIDAS</li>
+                <li><strong>Tooltips lexique</strong> - 40+ termes d'assurance</li>
+                <li><strong>RGPD compliant</strong> - Consentements explicites</li>
+                <li><strong>Accessibilité WCAG AA</strong> - Navigation clavier</li>
+                <li><strong>Mobile responsive</strong> - Drawer filtres</li>
+            </ul>
+            <p style="margin-top: 1rem;">
+                📚 <a href="/COMPARATEUR_REFONTE_README.md" style="color: #2563EB;">Voir la documentation complète</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 MIRADOR SAS - Tous droits réservés</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="#">Mentions légales</a> • 
+            <a href="#">RGPD</a> • 
+            <a href="#">Méthodologie</a> • 
+            <a href="#">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        console.log('%c🛡️ MIRADOR Comparateur Refonte', 'color: #2563EB; font-size: 20px; font-weight: bold;');
+        console.log('%cArchitecture:', 'color: #10B981; font-weight: bold;');
+        console.log('- ComparateurRefonte.tsx (main)');
+        console.log('- FiltersPanel.tsx (320px, sticky)');
+        console.log('- OffersGrid.tsx (3 columns)');
+        console.log('- ProductDataSheet.tsx (quote form)');
+        console.log('- SubscriptionFlow.tsx (5 steps)');
+        console.log('- TooltipLexique.tsx (40+ terms)');
+        console.log('\n%cData:', 'color: #10B981; font-weight: bold;');
+        console.log('- offersFull.ts (15 offers)');
+        console.log('- subscription.ts (types)');
+        console.log('\n%cFeatures:', 'color: #10B981; font-weight: bold;');
+        console.log('✓ Filtres adaptatifs par type');
+        console.log('✓ Tarification dynamique');
+        console.log('✓ Flow KYC complet');
+        console.log('✓ E-signature conforme');
+        console.log('✓ RGPD + Accessibilité');
+        console.log('\n%cPour démarrer:', 'color: #F59E0B; font-weight: bold;');
+        console.log('1. Cliquez sur "Démarrer la comparaison"');
+        console.log('2. Sélectionnez un type d\'assurance');
+        console.log('3. Ajustez les filtres à gauche');
+        console.log('4. Cliquez "Tarif ferme" sur une offre');
+        console.log('5. Remplissez le formulaire pour avoir un prix');
+        console.log('6. Souscrivez en ligne en 5 étapes');
+    </script>
+</body>
+</html>
